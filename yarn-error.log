@@ -1,0 +1,146 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\Aman\Downloads\bin;C:\Users\Aman\Downloads\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\Aman\Downloads\vendor\conemu-maximus5;C:\Users\Aman\Downloads\vendor\conemu-maximus5\ConEmu;C:\Python27\;C:\Python27\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\Aman\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Aman\AppData\Local\Programs\Python\Python36\;C:\Users\Aman\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Docker Toolbox;C:\Users\Aman\AppData\Roaming\npm;C:\Users\Aman\AppData\Local\Yarn\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\Users\Aman\Downloads\
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  10.2.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:50:26)
+
+npm manifest: 
+  {
+    "name": "jlt",
+    "version": "0.1.0",
+    "description": "Taxo Accouinting application build on React, Webpack (with Hot Module Replacement), Typescript and Babel.",
+    "keywords": [
+      "react",
+      "webpack",
+      "typescript",
+      "babel",
+      "sass",
+      "hmr"
+    ],
+    "author": "Anit Nilay",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://anitnilay@bitbucket.org/taxoservices/fallout.git"
+    },
+    "main": "src/electron-main.ts",
+    "scripts": {
+      "build": "npm run clean-dist && webpack --config=configs/webpack/prod.js",
+      "clean-dist": "rm -f -r -d dist",
+      "lint": "npm run lint:ts && npm run lint:sass",
+      "lint:ts": "tslint --format stylish --force -p . -c tslint.json",
+      "lint:sass": "stylelint ./src/**/*.scss",
+      "start": "concurrently \"cross-env HOT=1 NODE_ENV=development electron ./src/electron-main.ts\" \"npm run start-dev\"",
+      "start-dev": "webpack-dev-server --config=configs/webpack/dev.js",
+      "start-prod": "npm run build && cross-env HOT=1 NODE_ENV=production electron ./src/electron-main.ts",
+      "test": "jest --watch --coverage --config=configs/jest.json",
+      "jest": "jest --config=configs/jest.json --watch",
+      "jest--no-watch": "jest --config=configs/jest.json",
+      "precommit": "node linter.js",
+      "electron": "npm run clean-dist && DEBUG=electron-builder cross-env NODE_ENV=production electron-builder",
+      "electron-dist": "cross-env NODE_ENV=production webpack --config=configs/webpack/prod.js",
+      "electron-t": "cross-env NODE_ENV=production electron .",
+      "electron-all": "DEBUG=electron-builder cross-env NODE_ENV=production electron-builder -mwl"
+    },
+    "devDependencies": {
+      "@types/electron": "^1.6.10",
+      "@types/jest": "^21.1.10",
+      "@types/node": "^8.10.2",
+      "@types/react": "^16.0.34",
+      "@types/react-dom": "^16.0.3",
+      "awesome-typescript-loader": "^3.4.1",
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.4",
+      "babel-preset-react": "^6.24.1",
+      "chalk": "^2.3.2",
+      "concurrently": "^3.5.1",
+      "cross-env": "^5.1.4",
+      "css-loader": "^0.28.7",
+      "electron": "^2.0.1",
+      "electron-builder": "^20.14.7",
+      "electron-debug": "^1.5.0",
+      "electron-devtools-installer": "^2.2.3",
+      "electron-rebuild": "^1.7.3",
+      "express": "^4.16.2",
+      "file-loader": "^1.1.11",
+      "html-webpack-plugin": "^3.2.0",
+      "husky": "^0.14.3",
+      "image-webpack-loader": "^3.4.2",
+      "jest": "^22.0.4",
+      "node-loader": "^0.6.0",
+      "node-sass": "^4.7.2",
+      "postcss-loader": "^2.0.10",
+      "react": "^16.2.0",
+      "react-addons-test-utils": "^15.6.2",
+      "react-dom": "^16.2.0",
+      "react-hot-loader": "^3.1.3",
+      "sass-loader": "^6.0.6",
+      "sqlite3": "^4.0.0",
+      "style-loader": "^0.21.0",
+      "stylelint": "^8.0.0",
+      "stylelint-config-standard": "^18.2.0",
+      "stylelint-webpack-plugin": "^0.10.4",
+      "tslint": "^5.8.0",
+      "typescript": "^2.6.2",
+      "uglifyjs-webpack-plugin": "^1.2.5",
+      "webpack": "^4.6.0",
+      "webpack-cli": "^2.0.14",
+      "webpack-dev-middleware": "^3.1.2",
+      "webpack-dev-server": "^3.1.3",
+      "webpack-merge": "^4.1.1"
+    },
+    "dependencies": {
+      "@firebase/app-types": "^0.3.1",
+      "@google-cloud/storage": "^1.7.0",
+      "@types/lodash": "^4.14.96",
+      "@types/mousetrap": "^1.6.0",
+      "@types/radium": "^0.18.23",
+      "@types/react-autosuggest": "^9.3.3",
+      "@types/react-beautiful-dnd": "^6.0.1",
+      "@types/react-fontawesome": "^1.6.1",
+      "@types/react-select": "^1.2.6",
+      "csx": "^8.5.0",
+      "firebase": "^5.0.1",
+      "firebase-admin": "^5.12.1",
+      "lodash": "^4.17.4",
+      "moment": "^2.22.1",
+      "mousetrap": "^1.6.1",
+      "node-pre-gyp": "^0.9.0",
+      "npm": "^5.10.0",
+      "react-beautiful-dnd": "^7.1.3",
+      "react-fontawesome": "^1.6.1",
+      "reflect-metadata": "^0.1.12",
+      "rxjs": "^5.5.6",
+      "schema-utils": "^0.4.5",
+      "ts-loader": "^4.2.0",
+      "typeorm": "^0.1.11",
+      "typestyle": "^1.6.0"
+    },
+    "postcss": {},
+    "build": {
+      "appId": "com.taxoservice.jlt",
+      "mac": {
+        "category": "public.app-category.finance"
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
